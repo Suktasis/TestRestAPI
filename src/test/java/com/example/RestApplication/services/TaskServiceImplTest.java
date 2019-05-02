@@ -23,6 +23,7 @@ public class TaskServiceImplTest {
     public void init(){
         MockitoAnnotations.initMocks(this);
     }
+
     @Test
     public void findUser() {
         Task task = new Task();
@@ -32,9 +33,9 @@ public class TaskServiceImplTest {
 
         when(taskRepository.findById(anyLong())).thenReturn(user1);
 
-        Optional<Task> returnedUser = taskRepository.findById(1L);
+        Optional<Task> returnedTask = taskRepository.findById(1L);
 
-        assertEquals(task.getId(),user1.get().getId());
+        assertEquals(task.getId(),returnedTask.get().getId());
 
         verify(taskRepository,times(1)).findById(anyLong());
 

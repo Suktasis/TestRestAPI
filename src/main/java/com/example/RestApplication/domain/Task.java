@@ -17,6 +17,6 @@ public class Task {
     private Status status;
 
     @Column(name = "Timestamp")
-    private Timestamp time;
+    private Timestamp timestamp;
 
 }
