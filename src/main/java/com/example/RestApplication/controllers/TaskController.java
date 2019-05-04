@@ -27,7 +27,7 @@ public class TaskController {
         log.debug("add User POST");
 
         Task task = new Task();
-        task.setStatus(Status.CREATED);
+        task.setStatus(Status.created);
         taskService.addTask(task);
         taskService.updateTask(task);
         return new ResponseEntity(task.getId(),HttpStatus.ACCEPTED);

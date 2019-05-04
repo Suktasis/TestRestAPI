@@ -50,7 +50,7 @@ public class TaskControllerTest {
     public void findUser() throws Exception {
         Task task = new Task();
         task.setId(1L);
-        task.setStatus(Status.RUNNING);
+        task.setStatus(Status.running);
         task.setTimestamp(LocalDateTime.now());
 
         when(taskService.findTask(anyLong())).thenReturn(task);

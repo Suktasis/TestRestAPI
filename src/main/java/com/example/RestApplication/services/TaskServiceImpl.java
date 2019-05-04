@@ -21,7 +21,7 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public void addTask(Task task) {
         log.debug("add new task");
-        task.setStatus(Status.RUNNING);
+        task.setStatus(Status.running);
         task.setTimestamp(LocalDateTime.now());
         taskRepository.save(task);
     }
@@ -41,7 +41,7 @@ public class TaskServiceImpl implements TaskService {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        task.setStatus(Status.FINISHED);
+        task.setStatus(Status.finished);
         task.setTimestamp(LocalDateTime.now());
         taskRepository.save(task);
     }
