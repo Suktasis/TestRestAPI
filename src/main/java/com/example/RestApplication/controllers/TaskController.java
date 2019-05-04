@@ -11,8 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.Min;
-import java.sql.Timestamp;
-import java.util.concurrent.TimeUnit;
 
 @RestController
 @Slf4j
@@ -44,11 +42,9 @@ public class TaskController {
         if(task == null)
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
-        Timestamp newTimestamp = new Timestamp(task.getTimestamp().getTime() + + TimeUnit.MINUTES.toMillis(2));
-
         JSONObject entity = new JSONObject();
         entity.put("status",task.getStatus());
-        entity.put("timestamp",newTimestamp);
+        entity.put("timestamp",task.getTimestamp());
         return new ResponseEntity<>(entity, HttpStatus.OK);
     }
 }

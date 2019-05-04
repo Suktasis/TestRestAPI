@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
@@ -23,7 +22,7 @@ public class TaskServiceImpl implements TaskService {
     public void addTask(Task task) {
         log.debug("add new task");
         task.setStatus(Status.RUNNING);
-        task.setTimestamp(Timestamp.valueOf(LocalDateTime.now()));
+        task.setTimestamp(LocalDateTime.now());
         taskRepository.save(task);
     }
 
@@ -43,7 +42,7 @@ public class TaskServiceImpl implements TaskService {
             e.printStackTrace();
         }
         task.setStatus(Status.FINISHED);
-        task.setTimestamp(Timestamp.valueOf(LocalDateTime.now()));
+        task.setTimestamp(LocalDateTime.now());
         taskRepository.save(task);
     }
 }

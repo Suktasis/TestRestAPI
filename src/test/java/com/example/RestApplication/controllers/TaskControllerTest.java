@@ -12,7 +12,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 import static org.mockito.ArgumentMatchers.anyLong;
@@ -52,7 +51,7 @@ public class TaskControllerTest {
         Task task = new Task();
         task.setId(1L);
         task.setStatus(Status.RUNNING);
-        task.setTimestamp(Timestamp.valueOf(LocalDateTime.now()));
+        task.setTimestamp(LocalDateTime.now());
 
         when(taskService.findTask(anyLong())).thenReturn(task);
         mock.perform(get("/task/1")).andExpect(status().isOk())

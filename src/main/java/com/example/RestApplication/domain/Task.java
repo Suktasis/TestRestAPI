@@ -3,7 +3,7 @@ package com.example.RestApplication.domain;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -17,6 +17,6 @@ public class Task {
     private Status status;
 
     @Column(name = "Timestamp")
-    private Timestamp timestamp;
+    private LocalDateTime timestamp;
 
 }
